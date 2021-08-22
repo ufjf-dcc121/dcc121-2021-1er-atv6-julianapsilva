@@ -487,11 +487,15 @@
         }
         else if(classes.contains('orcs')){
             classes.add('tesouro')
+            classes.remove('orcs')
         }
         else if(classes.contains('tesouro')){
             classes.add('parede')
+            classes.remove('tesouro')
         }
-
+        (!target.className) ? 
+        console.log('Não possui nenhuma classe', target.className) : 
+        console.log('Classe:',target.className)
     }
 
     const celulas = document.querySelectorAll('td')

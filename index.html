@@ -474,8 +474,12 @@
  </table>
 
 <script>
+    const hasSomeClass = (celula) => celula.classList.contains('tesouro') || celula.classList.contains('orcs') 
+
+
     const celulas = document.querySelectorAll('td')
     for(let i = 0; i < celulas.length; i++){
+        if(!hasSomeClass(celulas[i]))
         celulas[i].classList.add('parede')
     }
 

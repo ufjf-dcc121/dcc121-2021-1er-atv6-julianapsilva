@@ -474,17 +474,32 @@
  </table>
 
 <script>
-    const hasSomeClass = (celula) => celula.classList.contains('tesouro') || celula.classList.contains('orcs') 
+    const hasSomeClass = (celula) => celula.classList.contains('tesouro') || celula.classList.contains('orcs')
     const callBack = (e) => console.log(e.target.classList)
+    const changeClass = ({target}) =>
+    {
+        const classes = target.classList
+        if(classes.contains('parede')){
+            classes.remove('parede')
+        }
+        else if(classes.length === 0){
+            classes.add('orcs')
+        }
+        else if(classes.contains('orcs')){
+            classes.add('tesouro')
+        }
+        else if(classes.contains('tesouro')){
+            classes.add('parede')
+        }
+
+    }
 
     const celulas = document.querySelectorAll('td')
     for(let i = 0; i < celulas.length; i++){
         if(!hasSomeClass(celulas[i]))
         celulas[i].classList.add('parede')
-        celulas[i].addEventListener('click', callBack)
+        celulas[i].addEventListener('click', changeClass)
     }
-
-
 
 </script>
 

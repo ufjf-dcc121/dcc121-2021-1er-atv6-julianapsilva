@@ -475,12 +475,13 @@
 
 <script>
     const hasSomeClass = (celula) => celula.classList.contains('tesouro') || celula.classList.contains('orcs') 
-
+    const callBack = (e) => console.log(e.target.classList)
 
     const celulas = document.querySelectorAll('td')
     for(let i = 0; i < celulas.length; i++){
         if(!hasSomeClass(celulas[i]))
         celulas[i].classList.add('parede')
+        celulas[i].addEventListener('click', callBack)
     }
 
 
